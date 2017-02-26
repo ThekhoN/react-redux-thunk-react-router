@@ -29,24 +29,24 @@ export const initGetQuotes = (quotes) => {
   }
 }
 
-const dispatchAppError = (bool) => {
+const setAppError = (bool) => {
   return {
     type:'APP_ERROR',
-    isLoading:bool
+    error:bool
   }
 }
 
-const dispatchAppLoading = (bool) => {
+const setAppLoading = (bool) => {
   return {
     type:'APP_LOADING',
-    isLoading:bool
+    loading:bool
   }
 }
 
-const dispatchAppLoaded = (bool) => {
+const setAppLoaded = (bool) => {
   return {
     type:'APP_LOADED',
-    loadSuccess:bool
+    loaded:bool
   }
 }
 
@@ -54,27 +54,26 @@ export const onfetchQuotesDispatch = (url) =>  {
   return (dispatch) => {
     console.log('running fetchQuotes. . .');
       //dispatch 'APP_LOADING' true
-      dispatchAppLoading(true)
+      dispatch(setAppLoading(true))
       fetch(url)
       .then(response => {
         if(!response.ok){
           throw Error(response.statusText)
         }
         //dispatch 'APP_LOADING' is loading false
-        dispatchAppLoading(false)
+        dispatch(setAppLoading(false))
         return response
       })
       .then(response => response.json())
       .then(items => {
         console.log('items from fetch: ', items);
         //dispatch 'INIT_GET_QUOTES'
-        dispatchAppLoaded(true)
         dispatch(initGetQuotes(items))
-
+        dispatch(setAppLoaded(true))
       })
       .catch(err => {
         //dispatch 'APP_ERRORED'
-        dispatchAppError(true)
+        dispatch(setAppError(true))
         console.log('fetch error: ', err);
       })
   }
