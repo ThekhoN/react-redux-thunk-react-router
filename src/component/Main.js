@@ -39,11 +39,10 @@ class MainComponent extends Component {
   componentDidMount(){
       const url = 'http://58b2874a78d2121200bfa8dd.mockapi.io/api/quotes'
       this.props.handleFetchQuotes(url)
-      console.log('this.props.quotes: ', this.props.quotes);
   }
   render(){
-    return (<div>
-      <h2>Main Component</h2>
+    return (<div className='mainComponent '>
+      <div className='headerContainer m-raised'><h2>favQuotes</h2></div>
     {React.cloneElement(this.props.children, this.props)}
   </div>)
   }

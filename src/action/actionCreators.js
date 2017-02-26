@@ -21,8 +21,8 @@ export const updateQuote = (quote) => {
 
 //onMount get all quotes
 export const initGetQuotes = (quotes) => {
-  console.log('running initGetQuotes. . .');
-  console.log('quotes initGetQuotes:', quotes);
+  //console.log('running initGetQuotes. . .');
+  //console.log('quotes initGetQuotes:', quotes);
   return {
     type: 'INIT_GET_QUOTES',
     quotes
@@ -52,7 +52,6 @@ const setAppLoaded = (bool) => {
 
 export const onfetchQuotesDispatch = (url) =>  {
   return (dispatch) => {
-    console.log('running fetchQuotes. . .');
       //dispatch 'APP_LOADING' true
       dispatch(setAppLoading(true))
       fetch(url)
@@ -66,7 +65,7 @@ export const onfetchQuotesDispatch = (url) =>  {
       })
       .then(response => response.json())
       .then(items => {
-        console.log('items from fetch: ', items);
+        //console.log('items from fetch: ', items);
         //dispatch 'INIT_GET_QUOTES'
         dispatch(initGetQuotes(items))
         dispatch(setAppLoaded(true))

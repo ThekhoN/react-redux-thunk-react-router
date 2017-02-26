@@ -10,17 +10,17 @@ export default class SingleQuote extends Component {
       return quote.id === params.quoteId
     })[0]
     //console.log('currentQuote: ', currentQuote);
-    return (<div>
-      <h3>SingleQuote Component</h3><br/>
-      <br/>
+    return (<div className='singleQuote'>
+
       <div className='quoteContainer'>
         {currentQuote ? currentQuote.quote : ''}
         <br/>
         -{currentQuote ? currentQuote.author: ''}
+        <p>submitted by:<br/>
+          {currentQuote? currentQuote.submittedBy : ''}
+        </p>
       </div>
-      <p>submitted by:<br/>
-        {currentQuote? currentQuote.submittedBy : ''}
-      </p>
+
     </div>)
   }
 }

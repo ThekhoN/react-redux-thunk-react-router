@@ -1,5 +1,82 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Fira sans', sans-serif;
+}
+
+.mainComponent {
+  width: 100%;
+  float: left;
+  background: #f2f2f2;
+}
+
+.headerContainer {
+  width: 100%;
+  float: left;
+  text-align: center;
+  padding: 1em 0;
+  background: #DCE35B; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #DCE35B , #45B649); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #DCE35B , #45B649); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+h2 {
+  font-weight: 100;
+  font-style: italic;
+  letter-spacing: 1px;
+  font-size: 1.6em;
+  color: white;
+}
+
+.m-raised {
+  box-shadow: 0 0 2px rgba(0,0,0,.12), 0 2px 2px rgba(0,0,0,.2);
+}
+
+ul, li {
+  list-style: none;
+}
+
+.quoteGallery {
+  width: 100%;
+  float: left;
+  padding: 2em;
+  box-sizing: border-box;
+}
+
+li.quoteUnit {
+  width: 100%;
+  margin-bottom: 1.6em;
+  background: white;
+  padding: 2em;
+  box-sizing: border-box;
+  transition: all .2s ease-in-out;
+}
+
+li.quoteUnit:hover a {
+  color: chocolate;
+}
+
+.quoteUnit a {
+  color: orange;
+  text-decoration: none;
+  width: 100%;
+  display: block;
+}
+
+.singleQuote {
+  width: 100%;
+  float: left;
+  padding: 2em;
+  box-sizing: border-box;
+
+}
+
+.quoteContainer {
+  background: white;
+  padding: 2em;  
 }

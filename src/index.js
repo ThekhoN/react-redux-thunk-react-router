@@ -11,8 +11,6 @@ import './index.css';
 import store from './store/store'
 import {history} from './store/store'
 
-console.log('store.getState(): ', store.getState());
-
 const router = (<Provider store={store}>
   <Router history={history}>
   <Route path='/' component={Main}>
