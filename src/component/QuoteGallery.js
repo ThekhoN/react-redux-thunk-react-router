@@ -1,15 +1,25 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router'
+import Loading from './Loading'
 
 export default class QuoteGallery extends Component {
   render(){
-    const {quotes} = this.props
+    const {quotes, app} = this.props
+    const loaded = app.loaded
     return (<div className='quoteGallery'>
       {
-        quotes.map(quote => (<li className='quoteUnit m-raised' key={quote.id}>
-          <Link to={`/quote/${quote.id}`}>{quote.quote}</Link>
-        </li>))
+        loaded ? <QuoteGalleryComponent quotes={quotes}/> : <Loading/>
       }
     </div>)
   }
+}
+
+const QuoteGalleryComponent = ({quotes}) => {
+  return (<ul>
+    {
+      quotes.map(quote => (<li className='quoteUnit m-raised' key={quote.id}>
+        <Link to={`/quote/${quote.id}`}>{quote.quote}</Link>
+    </li>))
+    }
+</ul>)
 }
